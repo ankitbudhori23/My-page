@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+        <!-- =====BOX ICONS===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <title>hi! i'm ANKIT</title>
+ <link rel = "icon" href ="https://img.icons8.com/plasticine/100/000000/alpha.png"
+       type = "image/x-icon"> 
+    </head>
+<style>
+  /*===== graphics CSS =====*/
+  .effect-wrap .effect{
+position:absolute;
+z-index: -1;
+}
+.effect-1{
+width:30px;
+height:30px;
+border:4px solid #8a49ff;
+right:100px;
+bottom:100px;
+color:green;
+animation: spin 5s linear infinite
+}
+.effect-2{
+left:3%;
+bottom:20%;
+width:40px;
+display:flex;
+flex-wrap:wrap;
+justify-content:space-between;
+animation:topbounce 3s ease-in-out infinite
+}
+.effect-2 div{
+height:3px;
+width:3px;
+background-color:#ff9c07;
+margin:0 3px 8px;
+}
+.effect-3{
+height:180px;
+width:180px;
+border:25px solid #FF6347;
+border-radius: 50%;
+left:40%;
+top:-50px;
+animation:leftbounce 3s ease-in-out infinite
+}
+.effect-4{
+border-top:30px solid transparent;
+border-left:30px solid #06d79c;
+left:30%;
+top:130px;
+animation:spin 15s linear infinite;
+}
+.effect-4:before{
+content:' ';
+border-top:30px solid transparent;
+border-left:30px solid #06d79c;
+position:absolute;
+opacity:0.5;
+left:-35px;
+top:-25px;
+}
+.effect-5{
+height:50px;
+width:50px;
+right:45%;
+top:70%;
+display:flex;
+justify-content:space-between;
+border-radius:50%;
+overflow:hidden;
+animation:spin 5s linear infinite;
+}
+.effect-5 div{
+width:1px;
+background-color: #4dd0e1;
+}
+@keyframes spin{
+  0% { transform: rotate(0deg);}
+100% { transform: rotate(360deg);}
+}
+@keyframes topbounce{
+  0% { transform: translateY(0);}
+50% { transform: translatey(40px);}
+}
+@keyframes leftbounce{
+  0% { transform: translatex(0);}
+50% { transform: translatex(40px);}
+}
+  /*===== graphics CSS =====*/
+.dark {
+            color: white;
+            background-color:#18191a;
+  			transition:background-color .9s ease, color .9s ease;
+         }
+
+#id{
+width:29px;
+cursor: pointer;
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+/*===== VARIABLES CSS =====*/
+:root{
+  --header-height: 3rem;
+  --font-semi: 600;
+}
+
+/*===== Colores =====*/
+:root{
+  --first-color: #4070F4;
+  --second-color: #0E2431;
+}
+
+/*===== Fuente y tipografia =====*/
+:root{
+  --body-font: 'Poppins', sans-serif;
+  --big-font-size: 2rem;
+  --h2-font-size: 1.25rem;
+  --normal-font-size: 0.938rem;
+}
+@media screen and (min-width: 768px){
+  :root{
+    --big-font-size: 3.5rem;
+    --h2-font-size: 2rem;
+    --normal-font-size: 1rem;
+  }
+}
+
+/*===== Margenes =====*/
+:root{
+  --mb-1: 0.5rem;
+  --mb-2: 1rem;
+  --mb-3: 1.5rem;
+  --mb-4: 2rem;
+  --mb-5: 2.5rem;
+  --mb-6: 3rem;
+}
+
+/*===== z index =====*/
+:root{
+  --z-back: -10;
+  --z-normal: 1;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*===== BASE =====*/
+*,::before,::after{
+  box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+}
+body{
+  margin: var(--header-height) 0 0 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  color: var(--second-color);
+}
+h1,h2,p{
+  margin: 0;
+}
+ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*===== CLASS CSS ===== */
+.section-title{
+  position: relative;
+  font-size: var(--h2-font-size);
+  color: var(--first-color);
+  margin-top: var(--mb-2);
+  margin-bottom: var(--mb-4);
+  text-align: center;
+}
+.section-title::after{
+  position: absolute;
+  content: "";
+  width: 64px;
+  height: 0.18rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 2rem;
+  background-color: var(--first-color);
+}
+.section{
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+/*===== LAYOUT =====*/
+.bd-grid{
+  max-width: 1024px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-column-gap: 2rem;
+  width: calc(100% - 2rem);
+  margin-left: var(--mb-2);
+  margin-right: var(--mb-2);
+}
+.l-header{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(146,161,176,.15);
+}
+
+/*===== NAV =====*/
+.nav{
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: var(--font-semi);
+}
+@media screen and (max-width: 768px){
+  .nav__menu{
+    position: fixed;
+    top: var(--header-height);
+    right: -100%;
+    width: 80%;
+    height: 100%;
+    padding: 2rem;
+    background-color: var(--second-color);
+    transition: .5s;
+  }
+}
+.nav__item{
+  margin-bottom: var(--mb-4);
+}
+.nav__link{
+  position: relative;
+  color: #fff;
+}
+.nav__link:hover{
+  position: relative;
+}
+.nav__link:hover::after{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0.18rem;
+  left: 0;
+  top: 2rem;
+  background-color: var(--first-color);
+}
+.nav__logo{
+  color: var(--first-color);
+padding: 1.2rem 0.5rem;
+}
+.nav__toggle{
+  color: var(--second-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/*Active menu*/
+.active::after{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0.18rem;
+  left: 0;
+  top: 2rem;
+  background-color: var(--first-color);
+}
+
+/*=== Show menu ===*/
+.show{
+  right: 0;
+}
+
+/*===== HOME =====*/
+.home{
+  height: calc(100vh - 3rem);
+  row-gap: 1rem;
+}
+.home__data{
+  align-self: center;
+}
+.home__title{
+  font-size: var(--big-font-size);
+  margin-bottom: var(--mb-5);
+}
+.home__title-color{
+  color: var(--first-color);
+}
+.home__social{
+  display: flex;
+  flex-direction: column;
+}
+.home__social-icon{
+  width: max-content;
+  margin-bottom: var(--mb-2);
+  font-size: 1.5rem;
+  color:#7a7ddd;
+}
+.home__social-icon:hover{
+  color: var(--first-color);
+}
+.home__img{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 295px;
+  transition-duration: 1s;
+}
+.home__img:hover{
+bottom: 140px;
+}
+/*BUTTONS*/
+.button{
+  display: inline-block;
+  background-color: var(--first-color);
+  color: #fff;
+  padding: .75rem 2.5rem;
+  font-weight: var(--font-semi);
+  border-radius: .5rem;
+}
+.button:hover{
+  box-shadow: 0 10px 36px rgba(0,0,0,.15);
+}
+
+/* ===== ABOUT =====*/
+.about__container{
+  row-gap: 2rem;
+  text-align: center;
+}
+.about__subtitle{
+  margin-bottom: var(--mb-2);
+}
+.about__img{
+  justify-self: center;
+}
+.about__img img{
+  width: 200px;
+  border-radius: .5rem;
+}
+
+/* ===== SKILLS =====*/
+.skills__container{
+  row-gap: 2rem;
+  text-align: center;
+}
+.skills__subtitle{
+  margin-bottom: var(--mb-2);
+}
+.skills__text{
+  margin-bottom: var(--mb-4);
+}
+.skills__data{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  font-weight: var(--font-semi);
+  padding: .5rem 1rem;
+  margin-bottom: var(--mb-4);
+  border-radius: .5rem;
+  box-shadow: 0 4px 25px rgba(14,36,49,.15);
+}
+.skills__icon{
+  font-size: 2rem;
+  margin-right: var(--mb-2);
+  color: var(--first-color);
+}
+.skills__names{
+  display: flex;
+  align-items: center;
+}
+.skills__bar{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: var(--first-color);
+  height: .25rem;
+  border-radius: .5rem;
+  z-index: var(--z-back);
+}
+.skills__html{
+  width: 95%;
+}
+.skills__css{
+  width: 85%;
+}
+.skills__js{
+  width: 65%;
+}
+.skills__ux{
+  width: 85%;
+}
+.skills__img{
+  border-radius: .5rem;
+}
+
+/* ===== WORK =====*/
+.work__container{
+  row-gap: 2rem;
+}
+.work__img{
+  box-shadow: 0 4px 25px rgba(14,36,49,.15);
+  border-radius: .5rem;
+  overflow: hidden;
+}
+.work__img img{
+  transition: 1s;
+  cursor: pointer;
+}
+.work__img img:hover{
+  transform: scale(1.1);
+}
+
+/* ===== CONTACT =====*/
+.contact__input{
+  width: 100%;
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-semi);
+  padding: 1rem;
+  border-radius: .5rem;
+  border: 1.5px solid var(--second-color);
+  outline: none;
+  margin-bottom: var(--mb-4);
+}
+.contact__button{
+  display: block;
+  border: none;
+  outline: none;
+  font-size: var(--normal-font-size);
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* ===== FOOTER =====*/
+.footer{
+  background-color: var(--second-color);
+  color: #fff;
+  text-align: center;
+  font-weight: var(--font-semi);
+  padding: 2rem 0;
+}
+.footer__title{
+  font-size: 2rem;
+  margin-bottom: var(--mb-4);
+}
+.footer__social{
+  margin-bottom: var(--mb-4);
+}
+.footer__icon{
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0 var(--mb-2)
+}
+
+/* ===== MEDIA QUERIES=====*/
+@media screen and (min-width: 768px){
+  body{
+    margin: 0;
+  }
+  .section{
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+  }
+  .section-title{
+    margin-bottom: var(--mb-6);
+  }
+  .section-title::after{
+    width: 80px;
+    top: 3rem;
+  }
+
+  .nav{
+    height: calc(var(--header-height) + 1rem);
+  }
+  .nav__list{
+    display: flex;
+    padding-top: 0;
+  }
+  .nav__item{
+    margin-left: var(--mb-6);
+    margin-bottom: 0;
+  }
+  .nav__toggle{
+    display: none;
+  }
+  .nav__link{
+    color: var(--second-color);
+  }
+
+  .home{
+    height: 100vh;
+  }
+  .home__data{
+    align-self: flex-end;
+  }
+  .home__social{
+    padding-top: 0;
+    padding-bottom: 2.5rem;
+    flex-direction: row;
+    align-self: flex-end;
+  }
+  .home__social-icon{
+    margin-bottom: 0;
+    margin-right: var(--mb-4);
+  }
+  .home__img{
+    width: 457px;
+    bottom: 15%;
+  }
+
+  .about__container, .skills__container{
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    text-align: initial;
+  }
+  .about__img img{
+    width: 300px;
+  }
+  .work__container{
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2,1fr);
+    column-gap: 2rem;
+  }
+  .contact__form{
+    width: 360px;
+  }
+  .contact__container{
+    justify-items: center;
+  }
+}
+
+@media screen and (min-width: 1024px){
+  .bd-grid{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .home__img{
+    right: 10%;
+  }
+}
+  .m{
+color:red;
+background-color:#fac4be;
+border: 2px solid red;
+border-radius:10px;
+padding:8px;
+}
+  .n{
+color:green;
+background-color:rgb(236, 255, 216);
+border: 2px solid green;
+border-radius:10px;
+padding:8px;
+  }
+</style>
+    <body>
+        <!--===== HEADER =====-->
+        <header class="l-header">
+            <nav class="nav bd-grid">
+               <div>
+
+<ul class="nav__list">
+<img src="https://d33wubrfki0l68.cloudfront.net/0e9e5e8d0c1671b030f2a5fef308eabf3e4e553d/889f8/assets/icons/evho-logo-gif.gif"  width="60" height="65" > 
+<a href="#" class="nav__logo">Ankit</a>
+                    </ul>
+
+                </div>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                        <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+ <li class="nav__item"> <img src="https://1.bp.blogspot.com/-Wf3BAiHDmb4/YIfzDWHyR7I/AAAAAAAAiIA/gETXWaHI0T4wQC2of-PUbs05fpS3-tbbQCLcBGAsYHQ/s0/moon.png" id="id" onclick="change()"></li>
+                    </ul>
+
+              
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+<div class="effect-wrap">
+<div class="effect effect-1">
+</div>
+<div class="effect effect-2">
+<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+<div></div>
+</div> 
+<div class="effect effect-3">
+</div>
+<div class="effect effect-4">
+</div>
+<div class="effect effect-5">
+<div></div><div></div><div></div><div></div><div></div>
+<div></div><div></div><div></div><div></div><div></div>
+</div>
+</div>
+        <main class="l-main">
+            <!--===== HOME =====-->
+            <section class="home bd-grid" id="home">
+                <div class="home__data">
+                    <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Ankit</span><br> Web Designer</h1>
+
+                    <button type="button" onclick="alert('There is no file')" class="button">Download CV</button>
+
+                </div>
+
+                <div class="home__social">
+                    <a href="https://www.linkedin.com/in/ankit-budhori/" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
+                    <a href="" class="home__social-icon"><i class='bx bxl-behance' ></i></a>
+                    <a href="https://github.com/ankitbudhori23" class="home__social-icon"><i class='bx bxl-github' ></i></a>
+                </div>
+
+                <div class="home__img">    
+                    <img src="https://1.bp.blogspot.com/-SgIdSXX3p5E/YIfxWm8k4rI/AAAAAAAAiH4/PHoFf0mknYk3j7W7ZA-YQIwsHeCYaDsJQCLcBGAsYHQ/s0/main.png" alt="">
+                </div>
+            </section>
+
+            <!--===== ABOUT =====-->
+            <section class="about section " id="about">
+                <h2 class="section-title">About</h2>
+
+                <div class="about__container bd-grid">
+                    <div class="about__img">
+                        <img src="assets/img/about.jpg" alt="">
+                    </div>
+                    
+                    <div>
+                        <h2 class="about__subtitle">I'am Ankit</h2>
+                        <p class="about__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate cum expedita quo culpa tempora, assumenda, quis fugiat ut voluptates soluta, aut earum nemo recusandae cumque perferendis! Recusandae alias accusamus atque.</p>           
+                    </div>                                   
+                </div>
+            </section>
+
+            <!--===== SKILLS =====-->
+            <section class="skills section" id="skills">
+                <h2 class="section-title">Skills</h2>
+
+                <div class="skills__container bd-grid">          
+                    <div>
+                        <h2 class="skills__subtitle">Profesional Skills</h2>
+                        <p class="skills__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit optio id vero amet, alias architecto consectetur error eum eaque sit.</p>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class='bx bxl-html5 skills__icon'></i>
+                                <span class="skills__name">HTML5</span>
+                            </div>
+                            <div class="skills__bar skills__html">
+
+                            </div>
+                            <div>
+                                <span class="skills__percentage">95%</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class='bx bxl-css3 skills__icon'></i>
+                                <span class="skills__name">CSS3</span>
+                            </div>
+                            <div class="skills__bar skills__css">
+                                
+                            </div>
+                            <div>
+                                <span class="skills__percentage">85%</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class='bx bxl-javascript skills__icon' ></i>
+                                <span class="skills__name">JAVASCRIPT</span>
+                            </div>
+                            <div class="skills__bar skills__js">
+                                
+                            </div>
+                            <div>
+                                <span class="skills__percentage">65%</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class='bx bxs-paint skills__icon'></i>
+                                <span class="skills__name">UX/UI</span>
+                            </div>
+                            <div class="skills__bar skills__ux">
+                                
+                            </div>
+                            <div>
+                                <span class="skills__percentage">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>              
+                        <img src="work3.jpg" alt="" class="skills__img">
+                    </div>
+                </div>
+            </section>
+
+          
+            <!--===== WORK =====-->
+            <section class="work section" id="work">
+                <h2 class="section-title">Work</h2>
+
+                <div class="work__container bd-grid">
+                    <div class="work__img">
+                        <img src="https://1.bp.blogspot.com/-ZVF6Gy3Y0vE/YH_K3j9zfKI/AAAAAAAAiAQ/M5VpB-3J6DoO16As8JracK-bL4rKUkn7wCLcBGAsYHQ/s0/work1.jpg" alt="">
+                    </div>
+                    <div class="work__img">
+                        <img src="https://1.bp.blogspot.com/-sb4Ev-pqy1c/YH_K3pF854I/AAAAAAAAiAM/SwAhB7lghAIPp5q4rED0ODjnd0CHHvg1wCLcBGAsYHQ/s0/work2.jpg" alt="">
+                    </div>
+                    <div class="work__img">
+                        <img src="https://1.bp.blogspot.com/-pO4-tVWuyow/YH_K3hCE4-I/AAAAAAAAiAI/Vy144RtoHd4DbywlS7EsW-WSeEKu4L0lwCLcBGAsYHQ/s0/work3.jpg" alt="">
+                    </div>
+                    <div class="work__img">
+                        <img src="https://1.bp.blogspot.com/-5Py5rTa2GDk/YH_K4TaXJ8I/AAAAAAAAiAU/n-vXiAqWWcQ0Osp8tkpP86VweklrjtOjQCLcBGAsYHQ/s0/work4.jpg" alt="">
+                    </div>
+                    <div class="work__img">
+                        <img src="https://1.bp.blogspot.com/-NpXUcZoyF9Q/YH_K4r0LcnI/AAAAAAAAiAY/uhZC19hiJhkFCknXwddVvXgA_z5i4oYGQCLcBGAsYHQ/s0/work5.jpg" alt="">
+                    </div>
+                    <div class="work__img">
+                        <img src="https://1.bp.blogspot.com/-qQ845ozr98I/YH_K4pF6z0I/AAAAAAAAiAc/Naf0GOykiI8IQk4LF_lJ7lqbbX6bsgbxQCLcBGAsYHQ/s0/work6.jpg" alt="">
+                    </div>
+                </div>
+            </section>
+
+          
+          
+            <!--===== CONTACT =====-->
+ <section class="contact section" id="contact">
+ <h2 class="section-title">Contact</h2>
+<div class="contact__container bd-grid">
+ <form name='contact-form'>
+    <div class='input-area'>
+     <label for='ContactForm1_contact-form-name'></label>
+<input class='contact__input' id='ContactForm1_contact-form-name' placeholder="Name" name='name' type='text'value='' /></div>
+    <div class='input-area'>
+      <label for='ContactForm1_contact-form-email'></label>
+<input class='contact__input' id='ContactForm1_contact-form-email' placeholder="E-mail" name='email' type='text' value='' /></div>
+    <div class='input-area'>
+      <label for='ContactForm1_contact-form-email-message'></label>
+<textarea class='contact__input' id='ContactForm1_contact-form-email-message' placeholder="Type your Message" cols="30" rows="5" name='email-message'></textarea></div>
+    <div class='input-area'>
+       <p class='contact-form-error-message' id='ContactForm1_contact-form-error-message'></p>
+      <p class='contact-form-success-message' id='ContactForm1_contact-form-success-message'></p>
+      <input class='contact__button button' id='ContactForm1_contact-form-submit' type='button' value='Submit' /></div>
+    <div class='notif-area'>
+  </form>
+ </div>
+</section>
+    </div>
+  </form>
+
+<script src='https://www.blogger.com/static/v1/widgets/2271878333-widgets.js'></script>
+<script>//<![CDATA[
+if (typeof(BLOG_attachCsiOnload) != 'undefined' && BLOG_attachCsiOnload != null) { window['blogger_templates_experiment_id'] = "templatesV1";window['blogger_blog_id'] = '6842432426147714464';BLOG_attachCsiOnload(''); }_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d6842432426147714464','//ankitbudhori.blogspot.com/','6842432426147714464');
+_WidgetManager._RegisterWidget('_ContactFormView', new _WidgetInfo('ContactForm1', 'footer1', null, document.getElementById('ContactForm1'), {'contactFormMessageSendingMsg': '<center class="n">Sending...</center>', 'contactFormMessageSentMsg': '<center class="n"><b>Success! </b>Your message has been sent.</center>', 'contactFormMessageNotSentMsg': 'Message could not be sent. Please try again later.', 'contactFormInvalidEmailMsg': '<center class="m"><b>Error! </b>A valid email address is required.</center>', 'contactFormEmptyMessageMsg': '<center class="m"><b>Error! </b>Message field cannot be empty.</center>', 'title': 'Contact Form', 'blogId': '6842432426147714464', 'contactFormNameMsg': 'Name', 'contactFormEmailMsg': 'Email', 'contactFormMessageMsg': 'Message', 'contactFormSendMsg': 'Send', 'submitUrl': 'https://www.blogger.com/contact-form.do'}, 'displayModeFull'));
+  //]]></script>
+
+
+
+        <!--===== FOOTER =====-->
+        <footer class="footer">
+            <p class="footer__title">Ankit</p>
+            <div class="footer__social">
+                <a href="https://www.facebook.com/profile.php?id=100005365664739" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
+                <a href="https://www.instagram.com/ankit_budhori/?fbclid=IwAR3z2wBamXJ16IOjVnjKVbOWpLtKlVjGdugw6yd31BJP3Xs7x9WmP9tbiZ8" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
+                <a href="" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
+            </div>
+            <p>&#169; 2020 copyright all right reserved</p>
+        </footer>
+
+
+
+        <!--===== SCROLL REVEAL =====-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--===== MAIN JS =====-->
+        <script src="assets/js/main.js"></script>
+
+    </body>
+<script>
+const showMenu = (toggleId, navId) =>{
+    const toggle = document.getElementById(toggleId),
+    nav = document.getElementById(navId)
+
+    if(toggle && nav){
+        toggle.addEventListener('click', ()=>{
+            nav.classList.toggle('show')
+        })
+    }
+}
+showMenu('nav-toggle','nav-menu')
+
+/*===== ACTIVE AND REMOVE MENU =====*/
+const navLink = document.querySelectorAll('.nav__link');   
+
+function linkAction(){
+  /*Active link*/
+  navLink.forEach(n => n.classList.remove('active'));
+  this.classList.add('active');
+  
+  /*Remove menu mobile*/
+  const navMenu = document.getElementById('nav-menu')
+  navMenu.classList.remove('show')
+}
+navLink.forEach(n => n.addEventListener('click', linkAction));
+
+/*===== SCROLL REVEAL ANIMATION =====*/
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '80px',
+    duration: 2000,
+    reset: true
+});
+
+/*SCROLL HOME*/
+sr.reveal('.home__title',{}); 
+sr.reveal('.button',{delay: 200}); 
+sr.reveal('.home__img',{delay: 400}); 
+sr.reveal('.home__social-icon',{ interval: 200}); 
+
+/*SCROLL ABOUT*/
+sr.reveal('.about__img',{}); 
+sr.reveal('.about__subtitle',{delay: 400}); 
+sr.reveal('.about__text',{delay: 400}); 
+
+/*SCROLL SKILLS*/
+sr.reveal('.skills__subtitle',{}); 
+sr.reveal('.skills__text',{}); 
+sr.reveal('.skills__data',{interval: 200}); 
+sr.reveal('.skills__img',{delay: 600});
+
+/*SCROLL WORK*/
+sr.reveal('.work__img',{interval: 200}); 
+
+/*SCROLL CONTACT*/
+sr.reveal('.contact__input',{interval: 200}); 
+//////
+   let btnText = document.getElementById("btn");
+         function change() {
+            let btn = document.body;
+            btn.classList.toggle("dark");
+            if (btnText.innerHTML === "Normal Mode") {
+             id.src="assets/img/sun.png";
+            } else {
+              id.src="assets/img/sun.png";
+            }}
+</script>
+</html>
